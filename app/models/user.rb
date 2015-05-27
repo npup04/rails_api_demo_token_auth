@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  #this gives us @user_instance.authenticate
+  #this gives us the authenticate method for a @user_instance
   has_secure_password
 
   before_create :generate_token
@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     begin
       self.token = SecureRandom.uuid.gsub(/\-/,'')
     end while self.class.exists?(token: token)
+
   end
 
 end

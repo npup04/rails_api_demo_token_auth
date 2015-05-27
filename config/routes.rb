@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  namespace :api do #/api/v1/posts
+  #/api/v1/posts
+  namespace :api do
     namespace :v1 do
       resources :posts, only: [:index]
       resources :users, defaults: { format: :json }, only: [:show, :index, :create] do
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
       end
     end
   end
+
 end
